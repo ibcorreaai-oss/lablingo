@@ -78,12 +78,16 @@ correct but diagnosing, both fail the actual goal.
 
 ---
 
+## Links
+- **Live demo:** https://lablingo.vercel.app
+- **GitHub repo:** https://github.com/ibcorreaai-oss/lablingo
+
 ## Submission checklist (from the official rules)
-- [ ] Project title + description (above)
+- [x] Project title + description (above)
 - [ ] Demo video, 2–5 minutes, uploaded to YouTube/Vimeo (see `VIDEO_SCRIPT.md` for the script —
       **recording this is the one step that needs a human**, see final report)
-- [ ] GitHub repo link (public, with this README as setup instructions) — filled in after push
+- [x] GitHub repo link (public, with this README as setup instructions)
 - [ ] Screenshots (2–3 minimum) — see `/screenshots` folder
-- [ ] Live demo link (Vercel) — filled in after deploy
+- [x] Live demo link (Vercel)
 - [ ] Team member info: name, contact email, for prize delivery — **Igor fills this in at
       registration time**, not stored in this repo

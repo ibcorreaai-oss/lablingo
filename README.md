@@ -4,6 +4,8 @@
 
 Built for [Next Byte Hacks V3](https://next-byte-hacks-v3.devpost.com/) (Devpost).
 
+**Live demo:** https://lablingo.vercel.app · **Repo:** https://github.com/ibcorreaai-oss/lablingo
+
 ## The problem
 
 Millions of people get a lab report back — blood work, cholesterol panel, thyroid test — full of
