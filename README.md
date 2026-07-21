@@ -4,7 +4,7 @@
 
 Built for [Next Byte Hacks V3](https://next-byte-hacks-v3.devpost.com/) (Devpost).
 
-**Live demo:** https://lablingo.vercel.app · **Repo:** https://github.com/ibcorreaai-oss/lablingo
+**Live demo:** https://lablingo.vercel.app · **Repo:** https://github.com/ibcorreaai-oss/lablingo · **Demo video:** https://youtu.be/tjz1jcOKp68
 
 ## The problem
 

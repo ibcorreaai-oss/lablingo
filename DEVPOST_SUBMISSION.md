@@ -81,12 +81,12 @@ correct but diagnosing, both fail the actual goal.
 ## Links
 - **Live demo:** https://lablingo.vercel.app
 - **GitHub repo:** https://github.com/ibcorreaai-oss/lablingo
+- **Demo video:** https://youtu.be/tjz1jcOKp68
 
 ## Submission checklist (from the official rules)
 - [x] Project title + description (above)
-- [ ] Demo video, 2–5 minutes, uploaded to YouTube/Vimeo (see `VIDEO_SCRIPT.md` for the script —
-      **recording this is the one step that needs a human**, see final report)
+- [x] Demo video, 2:29, unlisted on YouTube: https://youtu.be/tjz1jcOKp68
 - [x] GitHub repo link (public, with this README as setup instructions)
-- [ ] Screenshots (2–3 minimum) — see `/screenshots` folder
+- [x] Screenshots (2–3 minimum) — see `/screenshots` folder
 - [x] Live demo link (Vercel)
 - [x] Team member info: Igor Brito Corrêa — ibcorrea.ai@gmail.com
