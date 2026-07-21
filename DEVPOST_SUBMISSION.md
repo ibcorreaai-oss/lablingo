@@ -89,5 +89,4 @@ correct but diagnosing, both fail the actual goal.
 - [x] GitHub repo link (public, with this README as setup instructions)
 - [ ] Screenshots (2–3 minimum) — see `/screenshots` folder
 - [x] Live demo link (Vercel)
-- [ ] Team member info: name, contact email, for prize delivery — **Igor fills this in at
-      registration time**, not stored in this repo
+- [x] Team member info: Igor Brito Corrêa — ibcorrea.ai@gmail.com
