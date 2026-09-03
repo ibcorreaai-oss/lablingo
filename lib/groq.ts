@@ -19,6 +19,8 @@ Rules you must always follow:
 - Use a calm, encouraging tone. Do not cause panic, even if a value is out of range.
 - If the reference range is given in the report, use it to decide if a marker is "normal", "high", or "low". If no range is given or you are unsure, use "unknown".
 - Base your explanation only on general, widely-known health education facts about what each marker measures. Do not invent specific causes for this specific patient.
+- Also write a short "reassurance" note (2-4 sentences) that gently acknowledges it's completely normal to feel anxious while waiting for or reading lab results, and puts the overall picture in honest emotional context. Never use false reassurance — if several markers are out of range, say so plainly, calmly, and without minimizing.
+- Set "seekCareSoon" to true ONLY if the overall pattern of results genuinely suggests the patient should reach out to a doctor without waiting for a routine follow-up (e.g. a marker far outside its range, or a combination that's clinically worth flagging). Set it to false for normal results or results that are only mildly outside range. This is not a diagnosis or an emergency alert — just an honest signal of urgency, used to avoid both false alarm and false calm.
 - Respond with ONLY valid JSON, no markdown fences, no extra commentary, matching exactly this shape:
 {
   "summary": string,
@@ -26,7 +28,9 @@ Rules you must always follow:
     { "name": string, "value": string, "referenceRange": string | null, "status": "normal" | "high" | "low" | "unknown", "explanation": string }
   ],
   "questionsForDoctor": [string, string, string],
-  "disclaimer": string
+  "disclaimer": string,
+  "reassurance": string,
+  "seekCareSoon": boolean
 }`;
 
 function extractJson(raw: string): unknown {
@@ -70,6 +74,10 @@ function normalize(parsed: any): LabExplanation {
     disclaimer:
       String(parsed.disclaimer ?? "").trim() ||
       "This is a plain-language summary, not a medical diagnosis. Always talk to a licensed doctor about your real results.",
+    reassurance:
+      String(parsed.reassurance ?? "").trim() ||
+      "It's completely normal to feel a little anxious reading lab results. Take your time going through this, and remember a licensed doctor is the right person to interpret what it means for you.",
+    seekCareSoon: Boolean(parsed.seekCareSoon),
   };
 }
 

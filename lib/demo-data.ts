@@ -78,4 +78,7 @@ export const DEMO_EXPLANATION: LabExplanation = {
   ],
   disclaimer:
     "This is a plain-language summary, not a medical diagnosis. Always talk to a licensed doctor about your real results — they know your full health history and can interpret these numbers correctly.",
+  reassurance:
+    "If seeing a handful of 'high' and 'low' labels made your stomach drop, that's a completely normal reaction — most people feel that way, and it doesn't mean something is seriously wrong. Nothing here is far outside its range, and mild differences like these are common and often manageable with simple follow-up.",
+  seekCareSoon: false,
 };

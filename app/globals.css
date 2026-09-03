@@ -5,3 +5,23 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes breathe-pace {
+  0%,
+  100% {
+    transform: scale(0.72);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.breathe-circle {
+  animation: breathe-pace 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathe-circle {
+    animation: none;
+  }
+}

@@ -2,7 +2,9 @@
 
 import { useRef, useState } from "react";
 import { SAMPLE_REPORT } from "@/lib/demo-data";
-import { LabExplanation, MarkerStatus, ReadingLevel } from "@/lib/types";
+import { EmotionalState, LabExplanation, MarkerStatus, ReadingLevel } from "@/lib/types";
+import { EmotionalCheckIn } from "@/components/EmotionalCheckIn";
+import { CalmMode } from "@/components/CalmMode";
 
 const STATUS_STYLES: Record<MarkerStatus, string> = {
   normal: "border-green-500 bg-green-50",
@@ -32,6 +34,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<LabExplanation | null>(null);
   const [isReading, setIsReading] = useState(false);
+  const [feeling, setFeeling] = useState<EmotionalState | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function handleExplain() {
@@ -106,8 +109,13 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10 sm:py-16">
       <header className="mb-8 text-center">
-        <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-brand-100 px-3 py-1 text-xs font-medium text-brand-700">
-          🩺 AI-powered · Free · Not medical advice
+        <div className="mb-2 flex flex-wrap items-center justify-center gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-3 py-1 text-xs font-medium text-brand-700">
+            🩺 AI-powered · Free · Not medical advice
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+            🔒 Analyzed in memory, never stored
+          </span>
         </div>
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">LabLingo</h1>
         <p className="mt-2 text-slate-600">
@@ -182,10 +190,16 @@ export default function Home() {
         {error && (
           <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
         )}
+
+        <EmotionalCheckIn value={feeling} onChange={setFeeling} />
       </section>
 
       {result && (
         <section className="mt-6 space-y-4">
+          {(feeling === "worried" || result.seekCareSoon) && (
+            <CalmMode reassurance={result.reassurance} seekCareSoon={result.seekCareSoon} />
+          )}
+
           {result.isDemo && (
             <div className="rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800">
               <strong>Demo mode:</strong> showing a sample explanation. Add a free{" "}
@@ -213,6 +227,11 @@ export default function Home() {
               </button>
             </div>
             <p className="mt-2 text-slate-700">{result.summary}</p>
+            {feeling !== "worried" && !result.seekCareSoon && (
+              <p className="mt-3 border-t border-slate-100 pt-3 text-sm italic text-slate-500">
+                {result.reassurance}
+              </p>
+            )}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
